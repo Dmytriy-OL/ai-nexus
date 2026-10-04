@@ -256,7 +256,7 @@ export default function Showcase() {
                 </div>
 
                 {/* Chat Simulation (Interactivity) */}
-                <div className="flex-1 bg-black/40 rounded-3xl p-4 pt-12 md:p-6 md:pt-14 border border-white/5 mb-6 flex flex-col overflow-hidden relative min-h-[220px] shadow-inner">
+                <div className="bg-black/40 rounded-3xl p-4 pt-12 md:p-6 md:pt-14 border border-white/5 mb-6 flex flex-col overflow-hidden relative shadow-inner shrink-0">
                   <div className="absolute top-0 left-0 w-full p-3 bg-gradient-to-b from-[#050505] to-transparent z-10 text-[10px] font-bold text-neutral-500 uppercase tracking-widest text-center flex items-center justify-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                     Прямий ефір / Чат
@@ -294,7 +294,7 @@ export default function Showcase() {
                   </a>
                   <button className="py-4 px-6 rounded-2xl bg-white/5 hover:bg-white/10 text-white font-bold flex items-center justify-center gap-2 transition-colors border border-white/10 group">
                     <Grid size={18} className="group-hover:text-indigo-400 transition-colors" />
-                    <span className="hidden sm:inline">Стрічка</span>
+                    <span>Стрічка</span>
                   </button>
                 </div>
               </div>
