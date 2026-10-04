@@ -112,7 +112,7 @@ export default function Showcase() {
             className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 md:mb-6 leading-[1.1] py-2"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">Віртуальні блогери.</span>
-            <br className="hidden md:block" />
+            <br className="hidden md:block" />{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">Реальний вплив.</span>
           </motion.h1>
           <motion.p 
