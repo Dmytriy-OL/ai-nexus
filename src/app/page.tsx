@@ -208,11 +208,11 @@ export default function Showcase() {
                 </div>
 
                 {/* Chat Simulation (Interactivity) */}
-                <div className="flex-1 bg-black/30 rounded-2xl p-4 md:p-6 border border-white/5 mb-6 flex flex-col justify-end overflow-hidden relative">
-                  <div className="absolute top-0 left-0 w-full p-3 bg-gradient-to-b from-black/80 to-transparent z-10 text-xs font-semibold text-neutral-500 uppercase tracking-widest text-center">
+                <div className="flex-1 bg-black/30 rounded-2xl p-4 pt-12 md:p-6 md:pt-14 border border-white/5 mb-6 flex flex-col overflow-hidden relative min-h-[220px]">
+                  <div className="absolute top-0 left-0 w-full p-3 bg-gradient-to-b from-black/90 to-transparent z-10 text-xs font-semibold text-neutral-400 uppercase tracking-widest text-center">
                     Прямий ефір / Чат
                   </div>
-                  <div className="flex flex-col gap-3 mt-6">
+                  <div className="flex flex-col gap-3 mt-auto relative z-0">
                     {selectedBlogger.messages.map((msg, i) => (
                       <motion.div
                         key={i}
