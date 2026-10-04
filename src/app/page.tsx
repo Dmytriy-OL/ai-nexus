@@ -288,7 +288,7 @@ export default function Showcase() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0 mt-auto">
-                  <a href="#" className="flex-1 py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]">
+                  <a href={`https://t.me/nexus_showcase_bot?start=${selectedBlogger.id}`} target="_blank" rel="noopener noreferrer" className="flex-1 py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-base flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]">
                     <Send size={18} />
                     Перейти в Telegram
                   </a>
