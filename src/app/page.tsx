@@ -113,10 +113,10 @@ export default function Showcase() {
           {bloggers.map((blogger, idx) => (
             <motion.div
               key={blogger.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * idx }}
-              className="group relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 cursor-pointer hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-1"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 * idx, type: "spring", stiffness: 100 }}
+              className="group relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 cursor-pointer hover:border-indigo-500/30 transition-all duration-500 shadow-lg hover:shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:-translate-y-2"
               onClick={() => setSelectedBlogger(blogger)}
             >
               <div className="aspect-[3/4] w-full relative">
@@ -132,8 +132,8 @@ export default function Showcase() {
                 
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {blogger.tags.slice(0,2).map(tag => (
-                      <span key={tag} className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] uppercase font-bold text-white border border-white/10 tracking-wider">
+                    {blogger.tags.slice(0,2).map((tag, i) => (
+                      <span key={tag} className={`px-3 py-1 rounded-full backdrop-blur-md text-[10px] uppercase font-bold tracking-wider border ${i === 0 ? 'bg-indigo-500/80 text-white border-indigo-400/50 shadow-[0_0_10px_rgba(99,102,241,0.5)]' : 'bg-black/40 text-white/90 border-white/10'}`}>
                         {tag}
                       </span>
                     ))}
