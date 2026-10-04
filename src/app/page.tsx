@@ -64,7 +64,7 @@ export default function Showcase() {
     <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-indigo-500/30">
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-40 bg-neutral-950/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tighter flex items-center gap-2">
             <span className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm shadow-[0_0_15px_rgba(99,102,241,0.5)]">AI</span>
             Nexus
@@ -76,7 +76,7 @@ export default function Showcase() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-32 pb-10 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/20 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -92,7 +92,7 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white to-neutral-400"
+            className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-indigo-300/60 leading-tight pb-2"
           >
             Віртуальні блогери. <br />Реальний вплив.
           </motion.h1>
@@ -100,7 +100,7 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-neutral-400 mb-6 max-w-2xl mx-auto leading-relaxed"
           >
             Відкрийте для себе нову еру інфлюенсерів. Наші AI-персонажі створюють унікальний контент, формують тренди та ідеально підходять для інтеграції з вашим брендом.
           </motion.p>
@@ -109,7 +109,7 @@ export default function Showcase() {
 
       {/* Grid Section */}
       <section className="px-6 pb-32">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {bloggers.map((blogger, idx) => (
             <motion.div
               key={blogger.id}
@@ -133,7 +133,7 @@ export default function Showcase() {
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {blogger.tags.slice(0,2).map(tag => (
-                      <span key={tag} className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-medium text-white/90 border border-white/10">
+                      <span key={tag} className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md text-[10px] uppercase font-bold text-white border border-white/10 tracking-wider">
                         {tag}
                       </span>
                     ))}
