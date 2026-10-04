@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-const BOT_TOKEN = '8342901655:AAFuDtpAo9wVS9_YgV0Qn8CXxgzxHbYRqbY'; // Hardcoded for demo purposes
+const BOT_TOKEN = '8342901655:AAFuDtpAo9wVS9_YgV0Qn8CXxgzxHbYRqbY';
+const APP_URL = 'https://ai-nexus-ten-alpha.vercel.app'; // Your Vercel domain
 
 export async function POST(req: Request) {
   try {
@@ -13,37 +14,66 @@ export async function POST(req: Request) {
       if (text.startsWith('/start')) {
         const payload = text.split(' ')[1];
         
-        let replyText = "Привіт! Обери персонажа на нашому сайті, щоб почати спілкування.";
+        let replyText = "Привіт! Я віртуальний блогер. На жаль, я не зрозумів ваш запит.";
+        let imagePath = "";
+        let audioPath = "";
         
         if (payload === '1') {
-          replyText = "Привіт! Я Алекс 💻\n\nБачу, ти перейшов з нашої AI-вітрини. Шукаєш способи автоматизувати свій бізнес за допомогою штучного інтелекту чи просто цікавишся трендами? Я до твоїх послуг!";
+          replyText = "Привіт! Я Макс 📸\n\nРадий, що ти завітав до мого AI-блогу. Тут ми обговорюємо стиль життя та цікаві подорожі. Залишайся зі мною, буде круто!";
+          imagePath = "/images/male1.jpg";
+          audioPath = "/voices/1.mp3";
         } else if (payload === '2') {
-          replyText = "Йоу! Марк на зв'язку 🏔️\n\nРадий бачити тебе тут! Готовий підкорювати нові вершини? Якщо потрібна мотивація чи крутий план тренувань — тільки скажи.";
+          replyText = "Привіт! Я Алекс 💻\n\nМоя стихія — технології та бізнес. Якщо тебе цікавить, як працюють нейромережі або як запустити свій стартап, ти за адресою.";
+          imagePath = "/images/male2.jpg";
+          audioPath = "/voices/2.mp3";
         } else if (payload === '3') {
-          replyText = "Привіт, люба! ✨ Це Олена.\n\nКруто, що ти тут! Якраз готую розбір нових весняних трендів. Якщо хочеш дізнатися більше про капсульний гардероб — пиши!";
+          replyText = "Привіт, люба! Я Софія ✨\n\nДякую, що ти тут! Ми будемо говорити про моду, красу та стиль життя. Завжди рада бачити твої коментарі під моїми постами!";
+          imagePath = "/images/female1.jpg";
+          audioPath = "/voices/3.mp3";
         } else if (payload === '4') {
-          replyText = "Привіт! Я Mya 🎨\n\nМистецтво — це свобода. Рада, що ти завітав. Хочеш побачити мої останні ескізи або поговорити про креативний процес?";
+          replyText = "Привіт! Я Mya 🏃‍♀️\n\nСподіваюсь ти сьогодні вже потренувався? Я, як завжди, після залу. Залишайся зі мною, якщо хочеш бути у формі!";
+          imagePath = "/images/female2.jpg";
+          audioPath = "/voices/4.mp3";
         }
 
-        // Send typing action first for realism
+        // 1. Send typing action
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendChatAction`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: chatId, action: 'typing' })
+          body: JSON.stringify({ chat_id: chatId, action: 'upload_photo' })
         });
         
-        // Wait 1 second (simulated typing)
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Send the actual message
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        // 2. Send photo with text (caption)
+        if (imagePath) {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: chatId,
+              photo: `${APP_URL}${imagePath}`,
+              caption: replyText
+            })
+          });
+        }
+        
+        // 3. Send audio action
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendChatAction`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: replyText
-          })
+          body: JSON.stringify({ chat_id: chatId, action: 'record_voice' })
         });
+
+        // 4. Send voice message (using sendAudio since it's mp3)
+        if (audioPath) {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendAudio`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: chatId,
+              audio: `${APP_URL}${audioPath}`
+            })
+          });
+        }
       }
     }
     return NextResponse.json({ ok: true });
