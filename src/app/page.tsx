@@ -67,20 +67,20 @@ export default function Showcase() {
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-40 bg-[#050505]/70 backdrop-blur-xl border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="font-extrabold text-2xl tracking-tighter flex items-center gap-2">
-            <div className="relative flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 shadow-[0_0_20px_rgba(99,102,241,0.4)]">
-              <Sparkles size={16} className="text-white" />
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+          <div className="font-extrabold text-xl md:text-2xl tracking-tighter flex items-center gap-2">
+            <div className="relative flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 shadow-[0_0_20px_rgba(99,102,241,0.4)]">
+              <Sparkles size={14} className="text-white md:w-4 md:h-4 w-3.5 h-3.5" />
             </div>
             AI Nexus
           </div>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-4 md:gap-8">
             <div className="hidden md:flex gap-6">
               <a href="#" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Персонажі</a>
               <a href="#" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Технологія</a>
               <a href="#" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Кейси</a>
             </div>
-            <button className="text-sm font-bold text-white px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            <button className="text-xs md:text-sm font-bold text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               Створити AI
             </button>
           </div>
@@ -109,7 +109,7 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-[1.1] pb-2"
+            className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 md:mb-6 leading-[1.1] pb-2"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">Віртуальні блогери.</span>
             <br />
@@ -119,7 +119,7 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-neutral-400/90 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+            className="text-base sm:text-lg md:text-xl text-neutral-400/90 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed font-medium px-2"
           >
             Відкрийте для себе нову еру інфлюенсерів. Наші AI-персонажі створюють унікальний контент, формують тренди та ідеально підходять для інтеграції з вашим брендом.
           </motion.p>
@@ -226,32 +226,32 @@ export default function Showcase() {
               </div>
 
               {/* Right Column - Content */}
-              <div className="flex-1 p-6 md:p-10 overflow-y-auto custom-scrollbar flex flex-col h-full">
+              <div className="flex-1 p-5 sm:p-6 md:p-10 overflow-y-auto custom-scrollbar flex flex-col h-full">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-indigo-400 text-xs font-extrabold tracking-widest uppercase">{selectedBlogger.niche}</span>
-                  <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
+                  <span className="text-indigo-400 text-[10px] md:text-xs font-extrabold tracking-widest uppercase">{selectedBlogger.niche}</span>
+                  <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[9px] md:text-[10px] font-bold text-emerald-400 uppercase tracking-widest">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     Online
                   </span>
                 </div>
                 
-                <div className="flex items-center gap-3 mb-6">
-                  <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">{selectedBlogger.name}</h2>
-                  <CheckCircle2 size={24} className="text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] mt-1" fill="currentColor" stroke="black" />
+                <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">{selectedBlogger.name}</h2>
+                  <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)] mt-1" fill="currentColor" stroke="black" />
                 </div>
                 
-                <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 shrink-0">
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
-                    <div className="text-2xl font-extrabold text-white mb-1">{selectedBlogger.stats.followers}</div>
-                    <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Підписників</div>
+                <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6 md:mb-8 shrink-0">
+                  <div className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
+                    <div className="text-xl md:text-2xl font-extrabold text-white mb-0.5 md:mb-1">{selectedBlogger.stats.followers}</div>
+                    <div className="text-[8px] md:text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Підписників</div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
-                    <div className="text-2xl font-extrabold text-white mb-1">{selectedBlogger.stats.likes}</div>
-                    <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Лайків</div>
+                  <div className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
+                    <div className="text-xl md:text-2xl font-extrabold text-white mb-0.5 md:mb-1">{selectedBlogger.stats.likes}</div>
+                    <div className="text-[8px] md:text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Лайків</div>
                   </div>
-                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
-                    <div className="text-2xl font-extrabold text-white mb-1">{selectedBlogger.stats.posts}</div>
-                    <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Постів</div>
+                  <div className="p-3 md:p-4 rounded-2xl bg-white/5 border border-white/5 text-center backdrop-blur-sm">
+                    <div className="text-xl md:text-2xl font-extrabold text-white mb-0.5 md:mb-1">{selectedBlogger.stats.posts}</div>
+                    <div className="text-[8px] md:text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Постів</div>
                   </div>
                 </div>
 
