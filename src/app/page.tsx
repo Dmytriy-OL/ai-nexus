@@ -139,7 +139,10 @@ export default function Showcase() {
                     ))}
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-1 leading-tight">{blogger.name}</h3>
-                  <p className="text-sm text-neutral-300 font-medium">{blogger.niche}</p>
+                  <p className="text-sm text-neutral-300 font-medium mb-4">{blogger.niche}</p>
+                  <button className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-indigo-600 text-white text-sm font-semibold transition-colors backdrop-blur-md border border-white/20 hover:border-indigo-500 flex items-center justify-center gap-2">
+                    Дивитись блог
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -164,7 +167,7 @@ export default function Showcase() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: "100%", scale: 0.95 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 w-full h-[95vh] md:h-auto md:max-h-[85vh] md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-5xl bg-neutral-900 border border-white/10 md:rounded-3xl rounded-t-3xl z-50 overflow-hidden flex flex-col md:flex-row shadow-2xl"
+              className="fixed bottom-0 left-0 w-full h-[95vh] md:h-[85vh] md:max-h-[750px] md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-5xl bg-neutral-900 border border-white/10 md:rounded-3xl rounded-t-3xl z-50 overflow-hidden flex flex-col md:flex-row shadow-2xl"
             >
               <button 
                 onClick={() => setSelectedBlogger(null)}
@@ -174,7 +177,7 @@ export default function Showcase() {
               </button>
 
               {/* Left Column - Image */}
-              <div className="w-full md:w-5/12 h-64 md:h-[600px] relative shrink-0">
+              <div className="w-full md:w-5/12 h-64 md:h-full relative shrink-0">
                 <Image
                   src={selectedBlogger.image}
                   alt={selectedBlogger.name}
@@ -186,7 +189,7 @@ export default function Showcase() {
               </div>
 
               {/* Right Column - Content */}
-              <div className="flex-1 p-6 md:p-10 overflow-y-auto no-scrollbar flex flex-col h-full md:h-[600px]">
+              <div className="flex-1 p-6 md:p-10 overflow-y-auto custom-scrollbar flex flex-col h-full">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-indigo-400 text-xs font-bold tracking-widest uppercase">{selectedBlogger.niche}</span>
                 </div>
