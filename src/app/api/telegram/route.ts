@@ -21,19 +21,19 @@ export async function POST(req: Request) {
         if (payload === '1') {
           replyText = "Привіт! Я Макс 📸\n\nРадий, що ти завітав до мого AI-блогу. Тут ми обговорюємо стиль життя та цікаві подорожі. Залишайся зі мною, буде круто!";
           imagePath = "/images/male1.jpg";
-          audioPath = "/voices/1.mp3";
+          audioPath = "/voices/1.ogg";
         } else if (payload === '2') {
           replyText = "Привіт! Я Алекс 💻\n\nМоя стихія — технології та бізнес. Якщо тебе цікавить, як працюють нейромережі або як запустити свій стартап, ти за адресою.";
           imagePath = "/images/male2.jpg";
-          audioPath = "/voices/2.mp3";
+          audioPath = "/voices/2.ogg";
         } else if (payload === '3') {
           replyText = "Привіт, люба! Я Софія ✨\n\nДякую, що ти тут! Ми будемо говорити про моду, красу та стиль життя. Завжди рада бачити твої коментарі під моїми постами!";
           imagePath = "/images/female1.jpg";
-          audioPath = "/voices/3.mp3";
+          audioPath = "/voices/3.ogg";
         } else if (payload === '4') {
           replyText = "Привіт! Я Mya 🏃‍♀️\n\nСподіваюсь ти сьогодні вже потренувався? Я, як завжди, після залу. Залишайся зі мною, якщо хочеш бути у формі!";
           imagePath = "/images/female2.jpg";
-          audioPath = "/voices/4.mp3";
+          audioPath = "/voices/4.ogg";
         }
 
         // 1. Send typing action
@@ -63,14 +63,14 @@ export async function POST(req: Request) {
           body: JSON.stringify({ chat_id: chatId, action: 'record_voice' })
         });
 
-        // 4. Send voice message (using sendAudio since it's mp3)
+        // 4. Send voice message (using sendVoice)
         if (audioPath) {
-          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendAudio`, {
+          await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendVoice`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               chat_id: chatId,
-              audio: `${APP_URL}${audioPath}`
+              voice: `${APP_URL}${audioPath}`
             })
           });
         }
