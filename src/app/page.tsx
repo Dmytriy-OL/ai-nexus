@@ -215,7 +215,7 @@ export default function Showcase() {
                   <div className="absolute top-0 left-0 w-full p-3 bg-gradient-to-b from-black/90 to-transparent z-10 text-xs font-semibold text-neutral-400 uppercase tracking-widest text-center">
                     Прямий ефір / Чат
                   </div>
-                  <div className="flex flex-col gap-3 mt-auto relative z-0">
+                  <div className="flex flex-col gap-3 mt-2 relative z-0">
                     {selectedBlogger.messages.map((msg, i) => (
                       <motion.div
                         key={i}
