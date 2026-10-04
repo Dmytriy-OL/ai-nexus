@@ -80,7 +80,7 @@ export default function Showcase() {
               <a href="#" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Технологія</a>
               <a href="#" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">Кейси</a>
             </div>
-            <button className="text-xs md:text-sm font-bold text-white px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            <button className="text-xs md:text-sm font-bold text-black px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white hover:bg-neutral-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
               Створити AI
             </button>
           </div>
@@ -109,10 +109,10 @@ export default function Showcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 md:mb-6 leading-[1.1] pb-2"
+            className="text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter mb-4 md:mb-6 leading-[1.1] py-2"
           >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">Віртуальні блогери.</span>
-            <br />
+            <br className="hidden md:block" />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400">Реальний вплив.</span>
           </motion.h1>
           <motion.p 
